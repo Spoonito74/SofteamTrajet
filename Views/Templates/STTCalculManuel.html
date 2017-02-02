@@ -1,0 +1,123 @@
+﻿
+    <table>
+        <tr>
+            <td colspan="2">
+                <table>
+                    <tr>
+                        <td>
+                            <label>Date:</label>
+                        </td>
+                        <td width="100%">
+                            <input type="date" id="dateCalcul" name="date" ng-model="data.date"
+                                   placeholder="yyyy-MM-dd" min="2013-01-01" required ng-change="SetDate()">
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div ng-controller="EmployeesController" class="ng-scope">
+                    <table>
+                        <tr>
+                            <td>
+                                <label class="field-item even">Filtre:</label>
+                            </td>
+                            <td>
+                                <input type="text" ng-model="employeeNameSearch">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label>Employés Softeam</label>
+                            </td>
+                            <td>
+                                <select ng-model="employee"
+                                        ng-options="employee as (employee.Name +' '+employee.Surname) for employee in data.Employees | filterNames:employeeNameSearch"
+                                        ng-change="SetContext(employee)">
+                                    <option value="">--Selectionnez un employé--</option>
+                                </select>
+                                <a class="mybtn btn-primary btn-xs" data-nodrag ng-click="GetEmployees()" title="Refresh">
+                                    <span class="glyphicon glyphicon-refresh"></span>
+                                </a>
+                            </td>
+                        </tr>
+                    </table>
+                    <div ng-if="Current().Rue">
+                        <label>Adresse de départ:</label>
+                        {{Current().Rue+'.' +Current().Ville+'.'+Current().CodePostal}}
+                    </div>
+                </div>
+            </td>
+            <td>
+                <div ng-controller="ClientsController" class="ng-scope">
+                    <table>
+                        <tr>
+                            <td>
+                                <label>Filtre:</label>
+                            </td>
+                            <td>
+                                <input type="text" ng-model="clientNameSearch">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label>Clients Softeam</label>
+                            </td>
+                            <td>
+                                <select ng-model="client" ng-options="client as (client.Name +'-'+client.Code) for client in data.Clients  | filterNames:employeeNameSearch"
+                                        ng-change="SetContext(client)">
+                                    <option value="">--Selectionnez un client--</option>
+                                </select>
+                                <a class="mybtn  btn-primary btn-xs" data-nodrag ng-click="GetClients()" title="Refresh">
+                                    <span class="glyphicon glyphicon-refresh"></span>
+                                </a>
+                            </td>
+                        </tr>
+                    </table>
+                    <div ng-if="Current().Rue">
+                        <label>Adresse d'arrivée:</label>
+                        {{Current().Rue+'.' +Current().Ville+'.'+Current().CodePostal}}
+                    </div>
+
+                </div>
+            </td>
+        </tr>
+
+
+    </table>
+    <table>
+        <tr>
+            <td colspan="1" style="text-align:left">
+                <a class="mybtn btn-primary btn-xs" data-nodrag ng-click="Process()" style="margin-right: 8px;" title="Process">
+                    Calcul
+                    <span class="glyphicon glyphicon-ok"></span>
+                </a>
+            </td>
+<!--
+            <td colspan="1" style="text-align:left">
+                <a class="mybtn btn-primary btn-xs" data-nodrag ng-click="Process()" style="margin-right: 8px;" title="Process">
+                    Sauvegarde
+                    <span class="glyphicon glyphicon-save"></span>
+                </a>
+            </td>
+-->
+        </tr>
+    </table>
+    <div ng-if="DrivingTime!=''">
+           <label>Temps mis en voiture:</label>
+        <div class="ResultTime">
+            {{DrivingTime | secondsToDateTime | date:'HH:mm:ss'}}
+        </div>
+    </div>
+
+    <div ng-if="TransportTime!=''">
+        <p>
+            <label>Temps mis en transport:</label>
+            <div class="ResultTime">
+            
+                {{TransportTime | secondsToDateTime | date:'HH:mm:ss'}}
+            </div>
+</p>
+    </div>
+    

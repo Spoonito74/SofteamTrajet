@@ -1,0 +1,82 @@
+﻿<table class ="table table-bordered table-hover  table-condensed">
+    <tr>
+        <td style="width:15%"><strong>Nom</strong></td>
+        <td style="width:15%"><strong>Code</strong></td>
+        <td style="width:25%"><strong>Rue</strong></td>
+        <td style="width:10%"><strong>Ville</strong></td>
+        <td style="width:10%"><strong>Code Postal</strong></td>
+        <td style="width:10%"></td>
+    </tr>
+    <tr ng-repeat="d in data.Clients">
+        <td>
+            <span editable-text="d.Name" e-name="name" e-form="rowform" onbeforesave="checkName($data,d.Name)">
+                {{ d.Name || 'Vide' }}
+            </span>
+        </td>
+        <td>
+            <span editable-text="d.Code" e-name="code" e-form="rowform" onbeforesave="checkCode($data,d.Name)">
+                {{ d.Code || 'Vide' }}
+            </span>
+        </td>
+        <td>
+            <span editable-text="d.Rue" e-name="rue" e-form="rowform" onbeforesave="checkRue($data,d.Rue)">
+                {{ d.Rue || 'Vide' }}
+            </span>
+        </td>
+        <td>
+            <span editable-text="d.Ville" e-name="ville" e-form="rowform" onbeforesave="checkVille($data, d.Ville)">
+                {{ d.Ville || 'Vide' }}
+            </span>
+        </td>
+        <td>
+            <span editable-text="d.CodePostal" e-name="codepostal" e-form="rowform" onbeforesave="checkCodePostal($data, d.CodePostal)">
+                {{ d.CodePostal || 'Vide' }}
+            </span>
+        </td>
+      
+        <!--<td ng-controller="ClientsController" class="ng-scope" onclick="rowform.$show()">
+            <span editable-select="d.clientId" e-name="Client" e-form="rowform" e-ng-options="client.Id as (client.Name +'-'+client.Code) for client in data.Clients ">
+                {{ showClient(d) }}
+            </span>
+
+            <div ng-controller="ClientsController" class="ng-scope">
+                <select ng-model="client" ng-options="client as (client.Name +'-'+client.Code) for client in data.Clients  | filterNames:employeeNameSearch"
+                        ng-change="SetContext(client)">
+                    <option value="">--Selectionnez un client--</option>
+                </select>
+            </div>
+
+        </td>-->
+        <td style="white-space: nowrap">
+            <!-- form -->
+            <form editable-form name="rowform"  ng-show="rowform.$visible" class="form-buttons form-inline" shown="inserted == d">
+                <button type="submit" ng-disabled="rowform.$waiting" class="mybtn btn-primary">
+                    save
+                </button>
+                <button type="button" ng-disabled="rowform.$waiting" ng-click="rowform.$cancel()" class="mybtn btn-default">
+                    cancel
+                </button>
+            </form>
+            <div class="buttons" ng-show="!rowform.$visible">
+                <button class="mybtn btn-primary" ng-click="rowform.$show()">edit</button>
+                <button class="mybtn btn-danger" ng-click="removeClient($index)">del</button>
+            </div>
+        </td>
+
+    </tr>
+</table>
+<a class="mybtn btn-primary btn-xs" data-nodrag ng-click="addClient()" style=" margin-right 8px;" title="Process">
+    Ajouter un client
+    <span class="glyphicon glyphicon-plus"></span>
+</a>
+<!--
+<a class="mybtn btn-primary btn-xs" data-nodrag ng-click="SaveClients()" style=" margin-right 8px;" title="Process">
+    Sauvegarde
+    <span class="glyphicon glyphicon-save"></span>
+</a>
+-->
+<div class="alert alert-success alert-dismissible" role="alert" ng-show="messagesave!=''">
+    <button type="button" class="close" aria-label="Close" ng-click="EraseMessageSave()"><span aria-hidden="true">&times;</span></button>
+    <strong>{{messagesave}}</strong>
+</div>
+<span>{{message}}</span>

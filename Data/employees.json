@@ -1,0 +1,181 @@
+﻿{
+    "Employees": [
+        {
+            "Id": 1,
+            "Name": "A",
+            "Surname": "AAA",
+            "CodePostal": 75002,
+            "Ville": "Paris",
+            "Rue": "2 Rue de la bourse",
+            "ClientId": -1,
+            "Temps":  {
+                "Driving": 0,
+                "Transport": 0
+
+            }
+        },
+        {
+            "Id": 2,
+            "Name": "B",
+            "Surname": "BBB",
+            "CodePostal": 92000,
+            "Ville": "Nanterre",
+            "Rue": "5 Rue Maurice Thorez",
+            "ClientId": -1,
+            "Temps": {
+                "Driving": 0,
+                "Transport": 0
+
+            }
+        },
+          {
+            "Id": 3,
+            "Name": "C",
+            "Surname": "CCC",
+            "CodePostal": 78130,
+            "Ville": "Mureaux",
+            "Rue": "2 Chemin des buissons",
+            "ClientId": -1,
+            "Temps":  {
+                "Driving": 0,
+                "Transport": 0
+
+            }
+        },
+        {
+            "Id": 4,
+            "Name": "D",
+            "Surname": "DDD",
+            "CodePostal": 78450,
+            "Ville": "Villepreux",
+            "Rue": "5 Rue Pasteur",
+            "ClientId": -1,
+            "Temps": {
+                "Driving": 0,
+                "Transport": 0
+
+            }
+        },
+        {
+            "Id": 5,
+            "Name": "E",
+            "Surname": "EEE",
+            "CodePostal": 91370,
+            "Ville": " Verrières-le-buisson",
+            "Rue": "5 Rue de l'église",
+            "ClientId": -1,
+            "Temps": {
+                "Driving": 0,
+                "Transport": 0
+
+            }
+        },
+        {
+            "Id": 6,
+            "Name": "F",
+            "Surname": "FFF",
+            "CodePostal": 91180,
+            "Ville": "Saint-germain-lès-arpajon",
+            "Rue": "5 Rue du stade",
+            "ClientId": -1,
+            "Temps": {
+                "Driving": 0,
+                "Transport": 0
+
+            }
+        },
+        {
+            "Id": 7,
+            "Name": "G",
+            "Surname": "GGG",
+            "CodePostal": 94420,
+            "Ville": "Plessis-trévise",
+            "Rue": "5 Avenue de la Maréchale",
+            "ClientId": -1,
+            "Temps": {
+                "Driving": 0,
+                "Transport": 0
+
+            }
+        },
+        {
+            "Id": 8,
+            "Name": "H",
+            "Surname": "HHH",
+            "CodePostal": 94880,
+            "Ville": "Noiseau",
+            "Rue": "5 Rue Léon Blum",
+            "ClientId": -1,
+            "Temps": {
+                "Driving": 0,
+                "Transport": 0
+
+            }
+        },
+         {
+            "Id": 9,
+            "Name": "I",
+            "Surname": "III",
+            "CodePostal": 93460,
+            "Ville": "Gournay sur marne",
+            "Rue": "5 Bd Alsave-Lorraine",
+            "ClientId": -1,
+            "Temps": {
+                "Driving": 0,
+                "Transport": 0
+
+            }
+        },
+         {
+            "Id": 10,
+            "Name": "J",
+            "Surname": "JJJ",
+            "CodePostal": 93430,
+            "Ville": "Villetaneuse",
+            "Rue": "5 Rue Marcel Sembat",
+            "ClientId": -1,
+            "Temps": {
+                "Driving": 0,
+                "Transport": 0
+
+            }
+        },
+	    {
+			"Id": 11,
+			"Name": "Ly Ivry",
+			"Surname": "Tuan Anh",
+			"Rue": "10 Rue Gaston Monmousseau",
+			"Ville": "Ivry Sur Seine",
+			"CodePostal": 94200,
+			"ClientId": -1
+	    },
+	    {
+			"Id": 12,
+			"Name": "Ly Paris",
+			"Surname": "Tuan Anh",
+			"Rue": "1 Rue De La Durance",
+			"Ville": "Paris",
+			"CodePostal": 75012,
+			"ClientId": -1
+	    },
+	    {
+			"Id": 13,
+			"Name": "Ly Chatenay",
+			"Surname": "Tuan Anh",
+			"Rue": "55 Rue Docteur Le Savoureux",
+			"Ville": "Chatenay Malabry",
+			"CodePostal": 92290,
+			"ClientId": -1
+	    },
+	    {
+			"Id": 4,
+			"Name": "Ly Champs",
+			"Surname": "Tuan Anh",
+			"Rue": "9 Allée des cornouillers",
+			"Ville": "Champs Sur Marne",
+			"CodePostal": 77420,
+			"ClientId": -1
+	    }
+
+    ]    
+}

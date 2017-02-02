@@ -1,0 +1,61 @@
+﻿{
+    "Clients": [
+        {
+            "Id": 1,
+            "Name": "SGIB",
+            "Code": "LA DEFENSE",
+            "CodePostal": 92800,
+            "Ville": "Puteaux",
+            "Rue": "19 Cours Valmy"
+        },
+        {
+            "Id": 2,
+            "Name": "Cassib",
+            "Code": "SAINT QUENTIN",
+            "CodePostal": 78960,
+            "Ville": "Voisins-le-Bretonneux",
+            "Rue": "2 rue aux Fleurs"
+        },
+        {
+            "Id": 3,
+            "Name": "Natixis",
+            "Code": "Paris",
+            "CodePostal": 75012,
+            "Ville": "Paris",
+            "Rue": "21 Quai d'Austerlitz"
+        },
+        {  
+            "Id": 4,
+            "Name": "GMF",
+            "Code": "Paris",
+            "CodePostal": 92300,
+            "Ville": "Levallois-Perret",
+            "Rue": "136 Rue Anatole France"
+        },
+		{
+			"Id": 5,
+			"Name": "Softeam",
+			"Code": "Paris",
+			"CodePostal": 75116,
+			"Ville": "Paris",
+			"Rue": "21 Avenue Victor Hugo"
+		},
+		{
+			"Id": 6,
+			"Name": "Exane",
+			"Code": "Paris",
+			"CodePostal": 75002,
+			"Ville": "Paris",
+			"Rue": "6 rue Ménars"
+		},
+		{
+			"Id": 7,
+			"Name": "Société Générale",
+			"Code": "VAL DE FONTENAY",
+			"CodePostal": 94120,
+			"Ville": "Fontenay-sous-Bois",
+			"Rue": "5-7 Avenue du Val de Fontenay"
+		}
+
+    ]    
+}

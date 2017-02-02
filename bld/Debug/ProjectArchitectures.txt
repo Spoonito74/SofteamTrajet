@@ -1,0 +1,1 @@
+C:\dev\SofteamTrajet.Windows\SofteamTrajet.Windows.jsproj;neutral

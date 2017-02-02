@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <system.webServer>
+        <security>
+            <requestFiltering>
+                <fileExtensions>
+                    <add fileExtension=".JSON" allowed="true" />
+                </fileExtensions>
+                <verbs>
+                    <add verb="POST" allowed="true" />
+                </verbs>
+            </requestFiltering>
+        </security>
+        <handlers>
+            <add name="JSON" path="*.json" verb="*" modules="IsapiModule" scriptProcessor="C:\Windows\System32\inetsrv\asp.dll" resourceType="File" preCondition="bitness64" />
+        </handlers>
+    </system.webServer>
+</configuration>

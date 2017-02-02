@@ -1,0 +1,142 @@
+﻿<table class="table table-bordered table-hover  table-condensed">
+    <tr>
+        <td style="width:10%"><strong>Nom</strong></td>
+        <td style="width:10%"><strong>Prénom</strong></td>
+        <td style="width:15%"><strong>Rue</strong></td>
+        <td style="width:10%"><strong>Ville</strong></td>
+        <td style="width:8%"><strong>Code Postal</strong></td>
+        <td style="width:15%"><strong>Client</strong></td>
+        <td style="width:8%"></td>
+        <td style="width:12%" ng-show="$scope.CalulMode"><strong>Driving Time</strong></td>
+        <td style="width:12%" ng-show="$scope.CalulMode"><strong>Transport Time</strong></td>
+
+    </tr>
+    <tr ng-repeat="d in data.Employees">
+        <td>
+            <span editable-text="d.Name" e-name="name" e-form="rowform" onbeforesave="checkName($data,d.Name)">
+                {{ d.Name || 'Vide' }}
+            </span>
+        </td>
+        <td>
+            <span editable-text="d.Surname" e-name="surname" e-form="rowform" onbeforesave="checkSurname($data,d.Name)">
+                {{ d.Surname || 'Vide' }}
+            </span>
+        </td>
+        <td>
+            <span editable-text="d.Rue" e-name="rue" e-form="rowform" onbeforesave="checkRue($data,d.Rue)">
+                {{ d.Rue || 'Vide' }}
+            </span>
+        </td>
+        <td>
+            <span editable-text="d.Ville" e-name="ville" e-form="rowform" onbeforesave="checkVille($data, d.Ville)">
+                {{ d.Ville || 'Vide' }}
+            </span>
+        </td>
+        <td>
+            <span editable-text="d.CodePostal" e-name="codepostal" e-form="rowform" onbeforesave="checkCodePostal($data, d.CodePostal)">
+                {{ d.CodePostal || 'Vide' }}
+            </span>
+        </td>
+        <td>
+            <span editable-select="d.ClientId" e-name="client" onshow="loadClients()" e-form="rowform" e-ng-options="client.Id as (client.Name +'-'+client.Code) for client in Clients">
+                {{showClient(d)}}
+            </span>
+        </td>
+
+
+
+        <td style="white-space: nowrap">
+            <!-- form -->
+            <form editable-form name="rowform" ng-show="rowform.$visible" class="form-buttons form-inline" shown="inserted == d">
+                <button type="submit" ng-disabled="rowform.$waiting" class="mybtn btn-primary">
+                    save
+                </button>
+                <button type="button" ng-disabled="rowform.$waiting" ng-click="rowform.$cancel()" class="mybtn btn-default">
+                    cancel
+                </button>
+            </form>
+            <div class="buttons" ng-show="!rowform.$visible">
+                <button class="mybtn btn-primary" ng-click="rowform.$show()">edit</button>
+                <button class="mybtn btn-danger" ng-click="removeEmployee($index)">del</button>
+            </div>
+        </td>
+        <td ng-show="$scope.CalulMode">
+            {{d.Temps.Driving | secondsToDateTime | date:'HH:mm:ss'}}
+        </td>
+        <td ng-show="$scope.CalulMode">
+            {{d.Temps.Transport | secondsToDateTime | date:'HH:mm:ss'}}
+        </td>
+    </tr>
+</table>
+
+<table class="table table-bordered table-hover  table-condensed">
+    <tr>
+        <td style="width:10%">
+            <a class="mybtn btn-primary btn-xs" data-nodrag ng-click="addEmployee()" style="margin-right 8px;" title="Process">
+                Ajouter un employé
+                <span class="glyphicon glyphicon-plus"></span>
+            </a>
+        </td>
+        <td style="width:10%">
+            <a class="mybtn btn-primary btn-xs" data-nodrag ng-click="ResetClient()" style="margin-right 8px;" title="Reset">
+                Reset Client
+                <span class="glyphicon glyphicon-dashboard"></span>
+            </a>
+        </td>
+        <td></td>
+    </tr>
+</table>
+
+<!--
+<a class="mybtn btn-primary btn-xs" data-nodrag ng-click="SaveEmployees()" style="margin-right 8px;" title="Process">
+    Sauvegarde
+    <span class="glyphicon glyphicon-save"></span>
+</a>
+-->
+
+<div class="alert alert-success alert-dismissible" role="alert" ng-show="messagesave!=''">
+    <button type="button" class="close" aria-label="Close" ng-click="EraseMessageSave()"><span aria-hidden="true">&times;</span></button>
+    <strong>{{messagesave}}</strong>
+</div>
+
+
+
+<p></p>
+<div class="PanelTitle">
+    <a class="PanelTitleText" ng-click="$scope.CalulMode=!$scope.CalulMode">
+        Calcul
+    </a>
+
+</div>
+
+<div ng-show="$scope.CalulMode">
+    <div>
+        <label>
+            Date:
+            <input type="date" id="dateCalcul" name="date" ng-model="date"
+                   placeholder="yyyy-MM-dd" min="2013-01-01" required ng-change="SetDate()">
+
+            <a class="mybtn btn-primary btn-xs" data-nodrag ng-click="CalculTimes()" style="margin-right 8px;" title="Process">
+                Lancer le Calcul
+                <span class="glyphicon glyphicon-dashboard"></span>
+            </a>
+        </label>
+    </div>
+
+    <div>       
+    </div>
+
+    <div class="alert alert-warning" role="alert" ng-if="messageCalculFinal=='' && messageCalculIntermediate!=''">
+        <button type="button" class="close" aria-label="Close" ng-click="EraseMessageCalculIntermediate()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        {{messageCalculIntermediate}}
+    </div>
+
+    <div class="alert alert-info" role="alert" ng-if="messageCalculFinal!=''" >
+        <button type="button" class="close" aria-label="Close" ng-click="EraseMessageCalculIntermediate()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        {{messageCalculFinal}}
+    </div>
+</div>

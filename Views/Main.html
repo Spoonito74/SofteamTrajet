@@ -1,0 +1,194 @@
+﻿<!DOCTYPE html>
+<html lang="en-US" data-ng-app="SofteamTravelTime">
+<head>
+    <link rel="stylesheet" type="text/css" href="/Content/ui-bootstrap-csp.css" />
+    <link rel="stylesheet" type="text/css" href="/Content/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="/Content/bootstrap-theme.css" />
+    <link href="/Content/xeditable.css" rel="stylesheet" />
+    <link href="/Content//angular-chart.css" rel="stylesheet" />
+    <style type="text/css" media="all">
+        @import url("https://intranet.softeam.fr/modules/system/system.base.css?nxc0mr");
+        @import url("https://intranet.softeam.fr/modules/system/system.menus.css?nxc0mr");
+        @import url("https://intranet.softeam.fr/modules/system/system.messages.css?nxc0mr");
+        @import url("https://intranet.softeam.fr/modules/system/system.theme.css?nxc0mr");
+    </style>
+
+    <style type="text/css" media="screen">
+        @import url("https://intranet.softeam.fr/sites/all/modules/views_slideshow/views_slideshow.css?nxc0mr");
+    </style>
+    <style type="text/css" media="all">
+        @import url("https://intranet.softeam.fr/sites/all/modules/ldap/ldap_user/ldap_user.css?nxc0mr");
+        @import url("https://intranet.softeam.fr/modules/comment/comment.css?nxc0mr");
+        @import url("https://intranet.softeam.fr/sites/all/modules/date/date_api/date.css?nxc0mr");
+        @import url("https://intranet.softeam.fr/sites/all/modules/date/date_popup/themes/datepicker.1.7.css?nxc0mr");
+        @import url("https://intranet.softeam.fr/modules/field/theme/field.css?nxc0mr");
+        @import url("https://intranet.softeam.fr/modules/node/node.css?nxc0mr");
+        @import url("https://intranet.softeam.fr/modules/search/search.css?nxc0mr");
+        @import url("https://intranet.softeam.fr/modules/user/user.css?nxc0mr");
+        @import url("https://intranet.softeam.fr/modules/forum/forum.css?nxc0mr");
+        @import url("https://intranet.softeam.fr/sites/all/modules/views/css/views.css?nxc0mr");
+        @import url("https://intranet.softeam.fr/sites/all/modules/ckeditor/css/ckeditor.css?nxc0mr");
+    </style>
+    <style type="text/css" media="all">
+        @import url("https://intranet.softeam.fr/sites/all/modules/ctools/css/ctools.css?nxc0mr");
+        @import url("https://intranet.softeam.fr/sites/all/modules/ldap/ldap_servers/ldap_servers.admin.css?nxc0mr");
+        @import url("https://intranet.softeam.fr/sites/all/modules/views_slideshow/contrib/views_slideshow_cycle/views_slideshow_cycle.css?nxc0mr");
+        @import url("https://intranet.softeam.fr/sites/all/modules/softeam/css/softeam-module.css?nxc0mr");
+        @import url("https://intranet.softeam.fr/sites/all/modules/softeam/css/calendar.css?nxc0mr");
+    </style>
+    <style type="text/css" media="all">
+        @import url("https://intranet.softeam.fr/sites/all/themes/softeam/css/layout.css?nxc0mr");
+        @import url("https://intranet.softeam.fr/sites/all/themes/softeam/css/style.css?nxc0mr");
+        @import url("https://intranet.softeam.fr/sites/all/themes/softeam/css/jquery.mCustomScrollbar.css?nxc0mr");
+        @import url("https://intranet.softeam.fr/sites/all/themes/softeam/css/jquery.lightbox.css?nxc0mr");
+        @import url("https://intranet.softeam.fr/sites/all/themes/softeam/css/softeam_home.css?nxc0mr");
+        @import url("https://intranet.softeam.fr/sites/all/themes/softeam/css/softeam.css?nxc0mr");
+    </style>
+    <style type="text/css" media="print">
+        @import url("https://intranet.softeam.fr/sites/all/themes/softeam/css/print.css?nxc0mr");
+    </style>
+    <style type="text/css" media="screen and (max-width:480px) and (orientation: portrait)">
+        @import url("https://intranet.softeam.fr/sites/all/themes/softeam/css/mobile.css?nxc0mr");
+    </style>
+    <style type='text/css'>
+        #turnkey-credit {
+            font-family: Tahoma,Sans,Arial,Helvetica,Verdana,sans-serif;
+            font-size: 11px;
+            text-align: center;
+        }
+
+            #turnkey-credit a {
+                text-decoration: none;
+            }
+
+                #turnkey-credit a:hover {
+                    text-decoration: underline;
+                }
+    </style>
+    <link rel="stylesheet" type="text/css" href="/css/default.css" />
+
+
+    <script src="/Scripts/jquery-3.1.1.js"></script>
+    <script src="/Scripts/bootstrap.js"></script>
+    <script src="/Scripts/angular.js"></script>
+    <script src="/Scripts/angular-ui/ui-bootstrap.js"></script>
+    <script src="/Scripts/angular-route.js"></script>
+    <script src="/Scripts/angular-resource.js"></script>
+    <script src="/Scripts/xeditable.js"></script>
+    <script src="/Scripts/chart.js"></script>
+    <script src="/Scripts/angular-chart.js"></script>
+
+    <!--<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>-->
+    <script src="/Scripts/App/SttRoutes.js"></script>
+    <script src="/Scripts/App/STTGlobalContextFactory.js"></script>
+    <script src="/Scripts/App/STTService.js"></script>
+    <script src="/Scripts/App/STTFilters.js"></script>
+
+    <script src="/Scripts/App/TravelTimeCalculManuel/STTCalculManuelController.js"></script>
+    <script src="/Scripts/App/Clients/ClientsControler.js"></script>
+    <script src="/Scripts/App/Employees/EmployeesControler.js"></script>
+    <script src="/Scripts/App/Graphs/GraphTimeCtrl.js"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+</head>
+<body class="html not-front logged-in no-sidebars page-node page-node- page-node-208 node-type-page footer-columns">
+
+    <div id=" skip-link">
+        <div class="page-wrapper" id=" userbar">
+            <div class="region region-userbar">
+                <div id="block-menu-menu-userbar" class="block block-menu">
+
+
+                </div>
+            </div>
+        </div>
+
+        <div id="page">
+            <div id="header">
+                <!--<div id="header-bloc">
+                <div id="logoutbtn"><a href="user/logout">Se d&eacute;connecter</a></div>        </div>-->
+                <div class="section clearfix">
+
+                    <img src="https://intranet.softeam.fr/sites/all/themes/softeam/logo.png" alt="Accueil">
+                </div>
+            </div>
+
+            <div id="main-wrapper" class="clearfix">
+                <div id="main" class="clearfix">
+                    <div id="content" class="column sm-societe">
+                        <div class="section">
+                            <a id="main-content"></a>
+
+                            <div id="col_menu" class="sm-societe">
+                                <div class="region region-col-menu">
+                                    <div id="block-menu-menu-menu-societe" class="block block-menu sm-societe">
+
+                                        <h2><a ng-href="/Views/Main.html" class="block-title-link" title="STT">Calcul Temps de Transports</a></h2>
+
+                                        <div class="content">
+                                            <ul class="menu clearfix">
+                                                <li class="leaf"><a ng-href="#!/GestionEmployes">Gestion des employés</a></li>
+                                                <li class="leaf"><a ng-href="#!/GestionClients">Gestions des Clients</a></li>
+                                                <li class="leaf"><a ng-href="#!/CalculManuel">Calcul Individuel</a></li>
+                                                <li class="leaf"><a ng-href="#!/GraphsDriving">Répartition pour les temps de trajet en voiture</a></li>
+                                                <li class="leaf"><a ng-href="#!/GraphsTransport">Répartition pour les temps de trajet en transports en commun</a></li>
+
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!--<div>
+                              $location.protocol() = <span ng-bind="$location.protocol()"></span> <br>
+                              $location.host() = <span ng-bind="$location.host()"></span> <br>
+                              $location.port() = <span ng-bind="$location.port()"></span> <br>
+                              $location.path() = <span ng-bind="$location.path()"></span> <br>
+                              $location.search() = <span ng-bind="$location.search()"></span> <br>
+                              $location.hash() = <span ng-bind="$location.hash()"></span> <br>
+                            </div>-->
+
+                            <div id="col_ctt" >
+                                <h1>Temps de transport</h1>
+                                <div id="col_ctt_wrap" class="scrollContent" ng-controller="MainController">
+                                    <h1 class="title" id="page-title">
+                                        {{data.currentScreen}}
+                                    </h1>
+                                    <!--<div class="region region-col-ent">
+        <div id="block-views-home-news-block" class="block block-views bloc-societe">-->
+
+                                    <div class="region region-content">
+                                        <div id="block-system-main" class="block block-system">
+
+
+                                            <div class="content">
+                                                <div id="node-208" class="node node-page node-full clearfix" about="/societe" typeof="foaf:Document">
+
+                                                    <div class="content clearfix">
+                                                        <div class="field field-name-body field-type-text-with-summary field-label-hidden">
+                                                            <div class="field-items">
+                                                                <div class="field-item even" property="content:encoded">
+
+                                                                    <div ng-view></div>
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--</div>
+        </div>-->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
